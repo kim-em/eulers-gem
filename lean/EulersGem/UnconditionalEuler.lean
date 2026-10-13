@@ -10,8 +10,8 @@ import EulersGem.PolytopeHalfspaces
 # Euler's formula from a finite vertex presentation
 
 The finite-halfspace representation theorem discharges the presentation
-hypotheses of the original Euler proof. The original geometric face definitions
-and face-finiteness proof are unchanged.
+hypotheses of the original Euler proof. The counts use `IsFaceOf` and `affDim`,
+with finiteness supplied by `facesOfDim_finite_of_isPolytope`.
 -/
 
 namespace EulersGem

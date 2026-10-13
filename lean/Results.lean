@@ -13,10 +13,10 @@ import EulersGem.Picks
 /-!
 # Paper-facing results
 
-Three theorems, each proved in `EulersGem.*` and restated here:
+Public results, proved in `EulersGem.*` and restated here:
 
 * the Euler characteristic of a full-dimensional convex polytope,
-* `V − E + F = 2` in dimension 3, from that characteristic,
+* `V − E + F = 2` in dimension 3, including the two-hypothesis real-three-space theorem,
 * Pick's theorem for a strictly convex lattice polygon,
 * the five Platonic solids, by Euler's formula in dimension 3.
 
@@ -35,7 +35,7 @@ face counts, from vertices through the body, equals `1`. In dimension `3`
 this is `V − E + F = 2`. -/
 theorem results_euler_characteristic
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
-    [FiniteDimensional ℝ E] [Nonempty E]
+    [FiniteDimensional ℝ E]
     {p : Set E}
     (hP : EulersGem.IsPolytope p)
     (hdim : EulersGem.affDim p = Module.finrank ℝ E)
@@ -49,7 +49,7 @@ Euler characteristic `1`: the only 3-face is the body itself, and removing
 it from the alternating sum leaves `2`. -/
 theorem results_euler_relation_dimension_three
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
-    [FiniteDimensional ℝ E] [Nonempty E]
+    [FiniteDimensional ℝ E]
     {p : Set E}
     (hP : EulersGem.IsPolytope p)
     (hdim : EulersGem.affDim p = 3)
@@ -190,7 +190,7 @@ tetrahedron, cube, octahedron, dodecahedron, and icosahedron, with `(V, E, F)`
 the solution of that formula together with the double-counting identities. -/
 theorem results_five_platonic_solids :
     (∀ {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
-        [FiniteDimensional ℝ E] [Nonempty E]
+        [FiniteDimensional ℝ E]
         {p : Set E} {s m : ℕ},
         EulersGem.IsPolytope p →
         EulersGem.affDim p = 3 →
@@ -219,7 +219,7 @@ theorem results_five_platonic_solids :
           EulersGem.Platonic.icosahedron.F, EulersGem.Platonic.icosahedron.s,
           EulersGem.Platonic.icosahedron.m) = (12, 30, 20, 3, 5) := by
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
-  · intro E _ _ _ _ p s m hP hdim hEdim hs hm hface hedge hvert
+  · intro E _ _ _ p s m hP hdim hEdim hs hm hface hedge hvert
     obtain ⟨H, hH, hp⟩ := hP.isPolyhedron
     have hVEF := results_euler_relation_dimension_three hP hdim hEdim
     obtain ⟨hFace, hVert, _⟩ :=

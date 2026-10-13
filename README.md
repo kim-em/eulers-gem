@@ -63,15 +63,15 @@ dimension, with no supplied halfspace presentation. `results_euler_polyhedron`
 specializes the result to `EuclideanSpace ℝ (Fin 3)` and has exactly the two
 geometric hypotheses `EulersGem.IsPolytope p` and `EulersGem.affDim p = 3`.
 Its counts are the actual geometric face sets defined by `IsFaceOf` and `affDim`;
-`facesOfDim_finite_of_isPolytope` supplies their original finiteness proof.
+`facesOfDim_finite_of_isPolytope` supplies the geometric face-finiteness theorem.
 
 `IsPolytope.isPolyhedron` supplies the finite-vertex-to-finite-halfspace
 representation theorem in every finite-dimensional real inner product space.
 The supporting linear-inequality elimination and representation lemmas work
 over any linearly ordered field. They are in `EulersGem.LinearInequalities`,
 `EulersGem.PolyhedralRepresentation`, and `EulersGem.PolytopeHalfspaces`;
-`EulersGem.UnconditionalEuler` applies the existing Euler proof. The original
-hyperplane-arrangement argument and geometric definitions are unchanged.
+`EulersGem.UnconditionalEuler` applies the hyperplane-arrangement Euler
+argument from `EulersGem.Embed`.
 
 Supporting proofs stay in `EulersGem.*`. The Platonic classification calls Euler's formula in dimension 3. Pick's theorem cuts the polygon into det-primitive triangles of total shoelace `T/2`, with `T = 2I + B − 2`, and reads `I + B/2 − 1` off the disk Euler number of that triangulation.
 
